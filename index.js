@@ -25,7 +25,7 @@ client.on("guildMemberAdd", async (member) => {
         "Semoga harimu indah seperti senja yang jatuh perlahan di ufuk barat ☁️✨"
       )
       .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-      .setImage("https://i.ibb.co/9y3RCnD/aesthetic-welcome.jpg")
+      .setImage("https://cdn.discordapp.com/attachments/1361886141397340371/1414241266115285104/08f04819c687b31b954595d766ca21ef84c918a6_2_650x265.png?ex=68bf8311&is=68be3191&hm=ec211ad398335584d77b781f9d45501c289dbbe35a3f2b04ea1de549143c1052")
       .setFooter({ text: "Jangan lupa perkenalkan dirimu ya 🌿" })
       .setTimestamp();
 
