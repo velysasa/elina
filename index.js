@@ -35,4 +35,29 @@ client.on("guildMemberAdd", async (member) => {
   }
 });
 
+client.on("messageCreate", async (message) => {
+  if (message.author.bot) return; // biar ga nge-ban bot sendiri
+
+  // List kata terlarang
+  const badWords = ["kasar1", "kasar2", "kasar3"];
+
+  // Cek kata terlarang
+  if (badWords.some(word => message.content.toLowerCase().includes(word))) {
+    await message.delete();
+    return message.channel.send(`⚠️ ${message.author}, kata itu dilarang di sini!`);
+  }
+
+  // Block link invite discord
+  if (message.content.includes("discord.gg/")) {
+    await message.delete();
+    return message.channel.send(`🚫 ${message.author}, jangan share invite server lain ya.`);
+  }
+
+  // Anti spam (contoh: kalau spam huruf kapital semua)
+  if (message.content === message.content.toUpperCase() && message.content.length > 5) {
+    return message.reply("👉 Tolong jangan spam CAPS LOCK ya 😅");
+  }
+});
+
+
 client.login(process.env.DISCORD_TOKEN);
